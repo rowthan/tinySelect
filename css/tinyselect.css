@@ -1,0 +1,117 @@
+.tinyselect {
+	height: 34px;
+	display: inline-block;
+	min-width: 200px;
+	position: relative;
+}
+
+.tinyselect .selectbox {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+
+	text-align: left;
+
+	border: 1px solid #ccc;
+
+	line-height: 32px;
+	padding-left: 10px;
+	box-sizing: border-box;
+
+	cursor: pointer;
+	border-radius: 3px;
+
+	white-space: nowrap;
+	overflow-x: hidden;
+}
+
+.tinyselect .selectbox::after {
+	content: '\25BC';
+	position: absolute;
+	right: 0px;
+	border-left: 1px solid #ccc;
+	height: 100%;
+	font-size: 10pt;
+	line-height: 34px;
+	padding: 0px 8px;
+	background-color: #eee;
+}
+
+.tinyselect .selectbox.open::after {
+	content: '\25B2';
+}
+
+
+
+
+.tinyselect .dropdown {
+	position: absolute;
+	width: 100%;
+	top: 33px;
+	border: 1px solid #ccc;
+
+	background-color: white;
+	z-index: 100;
+
+	box-sizing: border-box;
+	max-height: 200px;
+
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.tinyselect .dropdown .searchcontainer {
+	padding: 5px;
+}
+
+.tinyselect .dropdown .searchbox {
+	width: 100%;
+	border: 1px solid #ccc;
+	font-size: 10pt;
+	line-height: 2em;
+	padding: 0 5px;
+}
+
+.tinyselect .dropdown .searchicon {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+
+
+
+
+.tinyselect .itemcontainer {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tinyselect .itemcontainer > li {
+	padding: 5px 2px;
+}
+
+.tinyselect .itemcontainer > li.item {
+	padding: 5px 10px;
+}
+
+.tinyselect .itemcontainer > li.selected {
+	background-color: #eee;
+}
+
+.tinyselect .itemcontainer > li.item:hover {
+	background-color: #1b6eab;
+	color: white;
+}
+
+.tinyselect .itemcontainer li.loadindicator {
+	padding: 15px;
+	font-weight: bold;
+}
+
+.tinyselect .itemcontainer li.loaderrorindicator {
+	padding: 15px;
+	font-weight: bold;
+	color: red;
+}

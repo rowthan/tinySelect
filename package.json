@@ -1,0 +1,29 @@
+{
+  "name": "tinyselect",
+  "description": "jQuery plugin to create custom select element. Supports ajax loading and filtering.",
+  "version": "1.0.0",
+  "author": "Pekka Harjamäki <mcfizh@gmail.com>",
+  "homepage": "https://github.com/McFizh/tinySelect",
+  "license": "MIT",
+  "keywords": [
+    "select",
+    "ajax",
+	"filter",
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ],
+  "main": "js/tinyselect.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/McFizh/tinySelect.git"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-contrib-clean": "1.0.0",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-contrib-jshint": "1.0.0",
+    "grunt-contrib-qunit": "1.0.1",
+    "grunt-contrib-uglify": "1.0.0",
+    "qunitjs": "^1.22.0"
+  }
+}

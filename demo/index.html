@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="../js/tinyselect.js"></script>
+
+    <link rel="stylesheet" href="../css/tinyselect.css">
+  </head>
+  <body>
+    
+	<select id="select1">
+		<option value="-1">option a</option>
+		<option value="1">option b</option>
+		<option value="2">option c</option>
+		<option value="3">option d</option>
+		<option value="4">option e</option>
+		<option value="5">option f</option>
+		<option value="6">option g</option>
+		<option value="7">option h</option>
+	</select>
+
+	<br/><br/>
+
+	<div style="width: 400px; border: 1px dashed black">
+	<select id="select2" style="width: 100%;">
+		<option value="-1">option a</option>
+		<option value="1">option b</option>
+		<option value="2" selected>option c</option>
+		<option value="3">option d</option>
+		<option value="4">option e</option>
+		<option value="5">option f</option>
+		<option value="6">option g</option>
+		<option value="7">option h</option>
+	</select>
+	</div>
+
+	<br/><br/>
+
+	<select id="select3">
+		<option value="-1">---</option>
+	</select>
+
+	<select id="select4">
+		<option value="-1">---</option>
+	</select>
+
+	<script>
+	function dataParser(data) {
+		retval = [ { val: "-1" , text: "---" } ];
+		data.forEach(function(v){ retval.push(v); });
+		return retval;
+	}
+
+	$("#select2").on("change",function() {
+		console.log($(this).val());
+	});
+
+	$("#select1").tinyselect();
+	$("#select2").tinyselect({ showSearch: false });
+	$("#select3").tinyselect({ dataUrl: "file.json" , dataParser: dataParser });
+	$("#select4").tinyselect({ dataUrl: "failure.json" });
+	</script>
+  </body>
+</html>

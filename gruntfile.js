@@ -3,6 +3,8 @@ module.exports = function(grunt){
 
   // ----------------------------------------------------
   grunt.initConfig({
+	pkg: grunt.file.readJSON('package.json'),
+
     clean: {
       dist: ["dist"]
     },
@@ -11,11 +13,11 @@ module.exports = function(grunt){
       options: {
         preserveComments: false,
 		banner: "/*\n" +
-			" * tinySelect ( https://github.com/McFizh/tinySelect )\n" +
+			" * tinySelect ( http://mcfizh.github.io/tinySelect/ )\n" +
 			" *\n" +
 			" * Licensed under MIT license.\n" +
 			" *\n" +
-			" * @version 1.0.0\n" +
+			" * @version <%= pkg.version %>\n" +
 			" * @author Pekka Harjamäki\n" +
 			" */"
       },

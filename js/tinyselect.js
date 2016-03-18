@@ -122,7 +122,7 @@
 			addClass("searchcontainer");
 		this.state.searchBox = $("<input type='text'></input>").
 			addClass("searchbox").
-			on("click",function(e) { e.stopPropagation() }).
+			on("click",function(e) { e.stopPropagation(); }).
 			on("keyup",{ self: this }, this.onSearchKeyPress);
 
 		this.state.searchContainer.append($("<span class='searchicon'>&#x1f50e;</span>"));
@@ -146,7 +146,7 @@
 		this.state.ajaxPending = true;
 		this.state.itemContainer.empty();
 
-		if(this.state.searchContainer != null)
+		if(this.state.searchContainer !== null)
 			this.state.searchContainer.hide();
 
 		var newLi = $("<li></li>");
@@ -176,7 +176,7 @@
 		var self = e.data.self,
 			sval = $(e.currentTarget).val();
 	
-		if(sval.length == 0)
+		if(sval.length === 0)
 		{
 			self.state.filteredItemData = self.state.originalItemData;
 		} else {
@@ -205,7 +205,7 @@
 		}
 	
 		// Open selectbox
-		if(self.config.dataUrl != null)
+		if(self.config.dataUrl !== null)
 		{
 			self.setAjaxIndicator(false);
 			$.ajax({
@@ -225,7 +225,7 @@
 	onAjaxLoadSuccess: function(self,data) {
 		self.state.ajaxPending = false;
 
-		if(self.config.dataParser != null )
+		if(self.config.dataParser !== null )
 		{
 			data = self.config.dataParser(data);
 		}
@@ -243,7 +243,7 @@
 		self.state.originalItemData = data;
 		self.state.filteredItemData = data;
 		
-        if(this.state.searchContainer != null)
+        if(this.state.searchContainer !== null)
             this.state.searchContainer.show();
 		self.createItems();
 	},

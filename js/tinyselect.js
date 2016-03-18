@@ -3,7 +3,7 @@
  *
  * Licensed under MIT license.
  *
- * @version 1.0.0
+ * @version 1.0.2
  * @author Pekka Harjamäki
  */
 ;(function($) {
@@ -232,11 +232,17 @@
 
 		self.state.$el.empty();
 		data.forEach(function(v){
+
+			if(v.selected)
+				self.state.selectedValue = v.val;
+
 			self.state.$el.append(
+
 				$("<option></option>").
 					text( v.text ).
 					val( v.val )
 			);
+
 		});
 		self.state.$el.val( self.state.selectedValue );
 

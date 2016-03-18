@@ -46,7 +46,13 @@
 	<script>
 	function dataParser(data) {
 		retval = [ { val: "-1" , text: "---" } ];
-		data.forEach(function(v){ retval.push(v); });
+
+		data.forEach(function(v){
+			if(v.val == 3)
+				v.selected = true;
+			retval.push(v); 
+		});
+
 		return retval;
 	}
 

@@ -9,7 +9,7 @@ Tiny jquery select component with ajax on demand loading and filtering.
 
 | option         | description |
 | -------------- | ----------- |
-| showSearch     | |
+| showSearch     | Show search box |
 | txtLoading     | Text to show while loading ajax request |
 | txtAjaxFailure | Text to show, if ajax loading fails |
 | dataUrl        | URL where to load content. If value is not set, plugin reads content from select element |

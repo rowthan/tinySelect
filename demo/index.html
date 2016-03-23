@@ -43,12 +43,19 @@
 		<option value="-1">---</option>
 	</select>
 
+	<br/><br/>
+
+	<select id="select5">
+		<option value="1">abc</option>
+	</select>
+
 	<script>
-	function dataParser(data) {
+	/* This parser won't respect "---" selection */
+	function dataParserA(data, selected) {
 		retval = [ { val: "-1" , text: "---" } ];
 
 		data.forEach(function(v){
-			if(v.val == 3)
+			if(selected == "-1" && v.val == 3)
 				v.selected = true;
 			retval.push(v); 
 		});
@@ -56,14 +63,24 @@
 		return retval;
 	}
 
+	/* This parser let's the component to handle selection */
+	function dataParserB(data, selected) {
+		retval = [ { val: "-1" , text: "---" } ];
+		data.forEach(function(v){ retval.push(v); });
+		return retval;
+	}
+
+	/* Create select elements */
+	$("#select1").tinyselect();
+	$("#select2").tinyselect({ showSearch: false });
+	$("#select3").tinyselect({ dataUrl: "file.json" , dataParser: dataParserA });
+	$("#select4").tinyselect({ dataUrl: "failure.json" });
+	$("#select5").tinyselect({ dataUrl: "file.json" , dataParser: dataParserB });
+
 	$("#select2").on("change",function() {
 		console.log($(this).val());
 	});
 
-	$("#select1").tinyselect();
-	$("#select2").tinyselect({ showSearch: false });
-	$("#select3").tinyselect({ dataUrl: "file.json" , dataParser: dataParser });
-	$("#select4").tinyselect({ dataUrl: "failure.json" });
 	</script>
   </body>
 </html>

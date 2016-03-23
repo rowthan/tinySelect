@@ -3,7 +3,7 @@
  *
  * Licensed under MIT license.
  *
- * @version 1.0.2
+ * @version 1.0.3
  * @author Pekka Harjamäki
  */
 ;(function($) {
@@ -125,7 +125,7 @@
 			on("click",function(e) { e.stopPropagation(); }).
 			on("keyup",{ self: this }, this.onSearchKeyPress);
 
-		this.state.searchContainer.append($("<span class='searchicon'>&#x1f50e;</span>"));
+		this.state.searchContainer.append($("<span class='searchicon'></span>"));
 		this.state.searchContainer.append(this.state.searchBox);
 		this.state.dropdown.append(this.state.searchContainer);
 	},
@@ -227,7 +227,7 @@
 
 		if(self.config.dataParser !== null )
 		{
-			data = self.config.dataParser(data);
+			data = self.config.dataParser(data, self.state.selectedValue);
 		}
 
 		self.state.$el.empty();

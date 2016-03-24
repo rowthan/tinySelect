@@ -7,6 +7,7 @@
   </head>
   <body>
     
+	This is just a basic select with static data.<br/>
 	<select id="select1">
 		<option value="-1">option a</option>
 		<option value="1">option b</option>
@@ -20,33 +21,45 @@
 
 	<br/><br/>
 
-	<div style="width: 400px; border: 1px dashed black">
-	<select id="select2" style="width: 100%;">
-		<option value="-1">option a</option>
-		<option value="1">option b</option>
-		<option value="2" selected>option c</option>
-		<option value="3">option d</option>
-		<option value="4">option e</option>
-		<option value="5">option f</option>
-		<option value="6">option g</option>
-		<option value="7">option h</option>
-	</select>
+	This div is displayed after select component is created. This causes problems with jQuery outerWidth.<br/>
+	<br/>
+	<div id="havoc" style="width: 800px; border: 1px dashed black; display: none; padding: 5px;">
+	
+	  This select doesn't have search<br/>
+	  <div style="width: 80%; display: inline-block;">
+		<select id="select2" style="width: 100%;">
+			<option value="-1">option a</option>
+			<option value="1">option b</option>
+			<option value="2" selected>option c</option>
+			<option value="3">option d</option>
+			<option value="4">option e</option>
+			<option value="5">option f</option>
+			<option value="6">option g</option>
+			<option value="7">option h</option>
+		</select>
+	  </div>
+
+	  <br/><br/>
+	  Data is loaded from file.json .. component doesn't respect '---' selection.<br/>
+	  <div style="width: 80%; display: inline-block;">
+		<select id="select3">
+			<option value="-1">---</option>
+		</select>
+	  </div>
+
 	</div>
 
-	<br/><br/>
-
-	<select id="select3">
-		<option value="-1">---</option>
+	<br/>
+	Data is loaded from file.json .. component respects selection.<br/>
+	<select id="select5" style="width: 340px;">
+		<option value="1">abc</option>
 	</select>
 
+	<br/><br/>
+
+	Note: This select is supposed to fail:<br/>
 	<select id="select4">
 		<option value="-1">---</option>
-	</select>
-
-	<br/><br/>
-
-	<select id="select5">
-		<option value="1">abc</option>
 	</select>
 
 	<script>
@@ -80,6 +93,8 @@
 	$("#select2").on("change",function() {
 		console.log($(this).val());
 	});
+
+	$("#havoc").show()
 
 	</script>
   </body>

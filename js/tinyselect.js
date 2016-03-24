@@ -3,7 +3,7 @@
  *
  * Licensed under MIT license.
  *
- * @version 1.0.3
+ * @version 1.0.4
  * @author Pekka Harjamäki
  */
 ;(function($) {
@@ -53,7 +53,7 @@
 		// Create container for select, search and options
 		this.state.container = $("<div></div>").
 			addClass("tinyselect").
-			css({ width: $el.outerWidth() });
+			css({ width: $el.css("width") });
 
 		// Create the select element
 		this.state.selectBox = $("<div></div>").

@@ -19,6 +19,7 @@
       
       this.config = $.extend({
 		showSearch: true,
+		searchCaseSensitive: true,
 		txtLoading: "Loading...",
 		txtAjaxFailure: "Error...",
 
@@ -50,10 +51,16 @@
     },
     
 	createSelect: function($el) {
+		var t_id;
+
 		// Create container for select, search and options
 		this.state.container = $("<div></div>").
 			addClass("tinyselect").
 			css({ width: $el.css("width") });
+
+		t_id = $el.attr("id");
+		if( t_id && t_id.length > 0 )
+			this.state.container.attr("id",t_id+"_ts");
 
 		// Create the select element
 		this.state.selectBox = $("<div></div>").
@@ -176,12 +183,21 @@
 		var self = e.data.self,
 			sval = $(e.currentTarget).val();
 	
+		// Convert search string to lowercase, if using case insensitive search
+		if(!self.config.searchCaseSensitive)
+			sval = sval.toLowerCase();
+
 		if(sval.length === 0)
 		{
 			self.state.filteredItemData = self.state.originalItemData;
 		} else {
 			self.state.filteredItemData = self.state.originalItemData.filter(function(item){
-				return item.text.toLowerCase().indexOf(sval) >= 0 ? true: false;
+				// Case insensitive search
+				if(!self.config.searchCaseSensitive)
+					return item.text.toLowerCase().indexOf(sval) >= 0 ? true: false;
+
+				// Case sensitive search
+				return item.text.indexOf(sval) >= 0 ? true: false;
 			});
 		}
 

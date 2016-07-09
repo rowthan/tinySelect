@@ -7,13 +7,13 @@
   </head>
   <body>
     
-	This is just a basic select with static data.<br/>
+	This is just a basic select with static data. Search is case sensitive.<br/>
 	<select id="select1">
 		<option value="-1">option a</option>
 		<option value="1">option b</option>
 		<option value="2">option c</option>
 		<option value="3">option d</option>
-		<option value="4">option e</option>
+		<option value="4">Option e</option>
 		<option value="5">option f</option>
 		<option value="6">option g</option>
 		<option value="7">option h</option>
@@ -40,7 +40,7 @@
 	  </div>
 
 	  <br/><br/>
-	  Data is loaded from file.json .. component doesn't respect '---' selection.<br/>
+	  Data is loaded from file.json, component doesn't respect '---' selection and search is case insensitive.<br/>
 	  <div style="width: 80%; display: inline-block;">
 		<select id="select3">
 			<option value="-1">---</option>
@@ -86,7 +86,7 @@
 	/* Create select elements */
 	$("#select1").tinyselect();
 	$("#select2").tinyselect({ showSearch: false });
-	$("#select3").tinyselect({ dataUrl: "file.json" , dataParser: dataParserA });
+	$("#select3").tinyselect({ searchCaseSensitive: false, dataUrl: "file.json" , dataParser: dataParserA });
 	$("#select4").tinyselect({ dataUrl: "failure.json" });
 	$("#select5").tinyselect({ dataUrl: "file.json" , dataParser: dataParserB });
 

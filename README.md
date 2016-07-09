@@ -35,6 +35,5 @@ Run the following commands:
 
 * npm install
 * grunt test
-** This step is optional
+  * This step is optional
 * grunt
-
